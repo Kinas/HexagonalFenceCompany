@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Reacttable from './table'
+import Reacttable from './reacttable'
 import companies from './companies';
 import categories from './categories.js';
 import compcat  from './category_per_company.js';
