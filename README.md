@@ -1,1 +1,21 @@
-# ReactTable
+ReactTable
+=====================
+
+### What is this?
+
+This application was designed for a presentational purpose. You may see a simple table created with React.js loading JSON data in it. By clickling on the row you may get some more additional informations.
+
+In this special case the user can see all the insurances listed with the possiblity to select an insurance and see which insurance categories the selected insurance covers.
+
+
+### Install with npm
+
+1. Clone the GitHub repository to your local workspace
+
+2. Use npm to install the dependencies
+
+`` npm install ``
+
+3. Start the application by running the command:
+
+`` npm start ``
