@@ -1,0 +1,14 @@
+#container div{
+  margin:auto;
+}
+.tableRow :hover{
+  background-color: #ccc;
+  color: black;
+  cursor: pointer;
+}
+th, td {
+    padding: 15px;
+}
+table {
+    border-spacing: 5px;
+}
