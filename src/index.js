@@ -1,30 +1,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Reacttable from './reacttable'
-import companies from './companies';
-import categories from './categories.js';
-import compcat  from './category_per_company.js';
+import Reacttable from './reacttable.js';
+
+import categories from './category_list.json';
+import compcat  from './category_per_company.json';
+import companies from './company_list.json';
 //get data from data file(s)
 /*
 @param dataOject: JSON Object
 */
-function getInfo(dataObject){
-  var data=[];
-  for (const key of Object.keys(dataObject)) {
-      data.push({
-      name: dataObject[key].title,
-      id: key
+function getInfo(){
+  let data=[];
+  //companies
+  for (const key of Object.keys(companies)) {
+    let compType= compcat[key];
+    let categoryList=[];
+    //categories
+    for (const i of Object.keys(compType)) {
+      if(compType[i] === 1){
+          categoryList.push(categories[i].title);
+      };
+    }
+    data.push({
+      name: companies[key].title,
+      id: key,
+      category_type: categoryList
     });
-  }
-  return data
+  }  
+  return data;
 }
-var companiesData = getInfo(companies);
-var categoriesData =getInfo(categories);
-var compcatData = getInfo(compcat);
+var companiesData = getInfo();
+//var categoriesData =getInfo(categories);
+//var compcatData = getInfo(compcat);
+//console.log(companiesData)
+//console.log(categoriesData);
 
-console.log(categoriesData)
-console.log(compcatData)
+
 
 class Container extends React.Component {
   //constructs the state of the class
@@ -48,8 +59,6 @@ class Container extends React.Component {
 
 // =================================
 
-ReactDOM.render(<Container />, document.getElementById('body'));
-
-
-
+ReactDOM.render(<Container />, document.getElementById('table-body'));
  
+
