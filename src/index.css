@@ -1,13 +1,12 @@
-.React-table  {
-  striped: true;
+#container div{
+  margin:auto;
 }
-
 .tableRow {
   background-color: #ccc;
   color: black;
   cursor: pointer;
 }
-.body .React-table .table tbody td:hover{
+#popover-container {
   background-color: #ccc;
   color: black;
   cursor: pointer;
