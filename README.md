@@ -26,6 +26,6 @@ In this special case the user can see all the insurances listed with the possibl
 
 1. Styling! The table looks a little bit too simple and not ready for the 21 century. 
 
-2. Different approach on how the data is displayed: For example not in a table but in a ``<span>``
+2. Different approach on how the categories are displayed: For example not in the table but in a popup or in a separated space on the right side of the table 
 
 3. Using more libraries to stop reinventing the wheel. What is already there should be used.
