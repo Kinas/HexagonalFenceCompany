@@ -2,13 +2,19 @@
   margin:auto;
 }
 .tableRow :hover{
-  background-color: #ccc;
+  background-color: #ddd;
   color: black;
   cursor: pointer;
 }
-th, td {
-    padding: 15px;
-}
-table {
+
+.React-table {
     border-spacing: 5px;
+    width: 50%;
+    text-align: left;
+}
+th, td {
+    padding: 25px;
+}
+.table-heading{
+  font-size: 20px;
 }

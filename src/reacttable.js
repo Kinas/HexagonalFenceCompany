@@ -11,11 +11,10 @@ class Headings extends React.Component {
     var headings = this.props.headings.map(function(name, i) {
       return <Heading heading = {name} key={i}/>;
     });
-   return <thead><tr>{headings}</tr></thead>;
+   return <thead><tr className="table-heading">{headings}</tr></thead>;
   }
 }
-
-
+  
 class Items extends React.Component{
   render(){
     var items = this.props.categories.map(function(categories, i) {

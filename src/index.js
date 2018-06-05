@@ -6,9 +6,6 @@ import categories from './category_list.json';
 import compcat  from './category_per_company.json';
 import companies from './company_list.json';
 //get data from data file(s)
-/*
-@param dataOject: JSON Object
-*/
 function getInfo(){
   let data=[];
   //companies
@@ -30,12 +27,6 @@ function getInfo(){
   return data;
 }
 var companiesData = getInfo();
-//var categoriesData =getInfo(categories);
-//var compcatData = getInfo(compcat);
-//console.log(companiesData)
-//console.log(categoriesData);
-
-
 
 class Container extends React.Component {
   //constructs the state of the class
