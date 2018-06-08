@@ -6,6 +6,7 @@
     "react": "^16.3.2",
     "react-bootstrap-table": "^4.3.1",
     "react-dom": "^16.3.2",
+    "react-onclickoutside": "^6.7.1",
     "react-scripts": "1.1.4",
     "react-table": "^6.8.6"
   },

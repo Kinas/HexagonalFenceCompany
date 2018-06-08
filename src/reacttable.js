@@ -27,42 +27,18 @@ class Items extends React.Component{
 
 class Row extends React.Component {
   constructor(props){
-    super(props);
+    super(props)
     this.state={
-      categories: [],
-      popupVisible: false
-    };
-    this.handleOnClick = this.handleOnClick.bind(this);
-    this.handleOutsideClick = this.handleOutsideClick.bind(this);
-  }
-
-  handleOnClick(){
-    if(!this.state.popupVisible){
-      // attach/remove event handler
-      document.addEventListener('click', this.handleOutsideClick, false);
-    } else {
-      document.removeEventListener('click', this.handleOutsideClick, false);
+      categories: this.props.changeSet.category_type
     }
-    this.setState (prevState => ({
-      popupVisible: !prevState.popupVisible
-    }));
   }
-
-  handleOutsideClick(e) {
-    // ignore clicks on the component itself
-    if(this.node.contains(e.target)) {
-      return;
-    }
-    this.handleOnClick();
-  }
-
   render() {
-    console.log()
     return (<tr className="tableRow">
-              <td onClick={this.handleOnClick} id={this.props.changeSet.id} ref={node => { this.node = node; }}> 
-                {this.props.changeSet.name} 
-                {this.state.popupVisible && (<Items className="categoryList" categories={this.props.changeSet.category_type}/>
-                  )}
+              <td id={this.props.changeSet.id}> 
+                {this.props.changeSet.name}
+                { (this.props.stateInfo.target === this.props.changeSet.id)? 
+                  (<Items className="categoryList" categories={this.state.categories}/>
+                  ) : ''}
               </td>
             </tr>
            );
@@ -70,30 +46,44 @@ class Row extends React.Component {
 }
 
 class Rows extends React.Component {
-  render() {
-    var rows = this.props.changeSets.map(function(changeSet, i) {
-      return(<Row changeSet = {changeSet} key={i} />);
+  constructor(){
+    super()
+    this.state={
+      target: ''
+    }
+    this.handleOnClick = this.handleOnClick.bind(this)
+  }
+  handleOnClick(e){
+    const targetID = e.target.id;
+    this.setState({
+      target: targetID
     });
-    return <tbody>{rows}</tbody>;
+  }
+  render() {
+    const stateInfo = this.state;
+    const rows = this.props.changeSets.map(function(changeSet, i) {
+      return(<Row changeSet = {changeSet} key={i} stateInfo={stateInfo}/> );
+    });
+    return <tbody onClick={this.handleOnClick}>{rows}</tbody>;
   }
 
 }
 
 // creates a table with the given data
 class Reacttable extends React.Component { 
-  constructor(props) {
-      super(props);
+  // no need for super(pros) => just needed when you want to access this.props in constructor
+  constructor() {
+      super();
       this.state = {
         headings: ['Name of Insurance Companies']
     };
-  
   }      
   render() {
     return <table className = 'table'>
              <Headings headings = {this.state.headings} />
              <Rows changeSets = {this.props.changeSets}/>
            </table>;
-  }
+  } 
 
 }
  

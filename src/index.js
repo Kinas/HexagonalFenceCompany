@@ -30,8 +30,8 @@ var companiesData = getInfo();
 
 class Container extends React.Component {
   //constructs the state of the class
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
         data: companiesData
     };  
